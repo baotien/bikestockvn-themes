@@ -86,7 +86,7 @@
 	?>
 	<body <?php body_class(array($body_class)); ?><?php echo $showing_overlay ? 'data-loading-overlay' : '' ?>>
 		<?php
-	/*Showing Overlay*/
+		/*Showing Overlay*/
 		if ($showing_overlay) : ?><div class="loading-overlay"><div class="loader"></div></div><?php
 		endif;
 
@@ -189,8 +189,6 @@
 								if(is_front_page()){
 									?>
 									<div class="col-md-9">
-
-
 										<?php
 										echo do_shortcode('[porto_sale_products view="products-slider" per_page="12" columns="6" pagination="yes" title="SẢN PHẨM KHUYẾN MÃI"]');
 										echo do_shortcode('[porto_best_selling_products view="products-slider" per_page="12" columns="6" pagination="yes" title="SẢN PHẨM BÁN CHẠY NHẤT"]');

@@ -26,51 +26,51 @@ $sticky_sidebar = porto_meta_sticky_sidebar();
 if ($porto_layout == 'wide-left-sidebar' || $porto_layout == 'wide-right-sidebar' || $porto_layout == 'left-sidebar' || $porto_layout == 'right-sidebar') : ?>
     <div class="col-md-3 sidebar <?php echo str_replace('wide-', '', $porto_layout) ?><?php echo $mobile_sidebar ? ' mobile-hide-sidebar' : '' ?>"><!-- main sidebar -->
         <?php if ($sticky_sidebar) : ?>
-        <div data-plugin-sticky data-plugin-options="<?php echo esc_attr('{"autoInit": true, "minWidth": 991, "containerSelector": ".main-content-wrap"}') ?>">
-        <?php endif; ?>
-        <div class="sidebar-content">
-            <?php
-            // show sidebar
-            do_action('porto_before_sidebar');
-            $sidebar_menu = porto_sidebar_menu();
-            if ($sidebar_menu) : ?>
-                <div id="main-sidebar-menu" class="widget_sidebar_menu">
-                    <?php if ($porto_settings['menu-sidebar-title']) : ?>
-                        <div class="widget-title">
-                            <?php echo force_balance_tags($porto_settings['menu-sidebar-title']) ?>
-                            <?php if ($porto_settings['menu-sidebar-toggle']) : ?>
-                                <div class="toggle"></div>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
-                    <div class="sidebar-menu-wrap scrollbar-inner" >
-                        <?php echo $sidebar_menu ?>
-                    </div>
-                </div>
+            <div data-plugin-sticky data-plugin-options="<?php echo esc_attr('{"autoInit": true, "minWidth": 991, "containerSelector": ".main-content-wrap"}') ?>">
             <?php endif; ?>
-            <?php dynamic_sidebar( $porto_sidebar );
-            do_action('porto_after_sidebar');
-            ?>
-        </div>
-        <?php
-        if ($sticky_sidebar) : ?>
-        </div>
+            <div class="sidebar-content">
+                <?php
+            // show sidebar
+                do_action('porto_before_sidebar');
+                $sidebar_menu = porto_sidebar_menu();
+                if ($sidebar_menu) : ?>
+                    <div id="main-sidebar-menu" class="widget_sidebar_menu">
+                        <?php if ($porto_settings['menu-sidebar-title']) : ?>
+                            <div class="widget-title">
+                                <?php echo force_balance_tags($porto_settings['menu-sidebar-title']) ?>
+                                <?php if ($porto_settings['menu-sidebar-toggle']) : ?>
+                                    <div class="toggle"></div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="sidebar-menu-wrap scrollbar-inner" >
+                            <?php echo $sidebar_menu ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php dynamic_sidebar( $porto_sidebar );
+                do_action('porto_after_sidebar');
+                ?>
+            </div>
+            <?php
+            if ($sticky_sidebar) : ?>
+            </div>
         <?php endif; ?>
     </div><!-- end main sidebar -->
 <?php endif; ?>
-		<?php
-			if(is_front_page()){
-				?>
-				</div>
-				<div class="col-md-3 padding-lr-mobile hidden-mobile">
-					<?php
-						echo do_shortcode('[vc_column offset="vc_col-lg-12"][porto_block name="home-ad"][vc_custom_heading text="TIN TỨC" font_container="tag:h2|font_size:1.1429em|text_align:left" use_theme_fonts="yes" el_class="widget-title" css=".vc_custom_1494855257013{margin-bottom: 10px !important;}"][porto_recent_posts number="5" items_desktop="1" items_tablets="1" items_mobile="1" cats="1"][vc_custom_heading text="SỰ KIỆN" font_container="tag:h2|font_size:1.1429em|text_align:left" use_theme_fonts="yes" el_class="widget-title" css=".vc_custom_1494855265876{margin-bottom: 10px !important;}"][porto_recent_posts number="5" items_desktop="1" items_tablets="1" items_mobile="1" cats="2"][/vc_column][vc_row][vc_column css=".vc_custom_1495188622101{margin-top: 0px !important;margin-bottom: 0px !important;}" offset="vc_hidden-lg vc_hidden-md vc_hidden-sm vc_col-xs-12" el_class="text-center"][vc_widget_sidebar sidebar_id="footer-bottom"][/vc_column]');
-					?>
-				</div>
-				<?php
-			}
-			?>
-    </div>
+<?php
+if(is_front_page()){
+    ?>
+</div>
+<div class="col-md-3 padding-lr-mobile hidden-mobile">
+   <?php
+   echo do_shortcode('[vc_column offset="vc_col-lg-12"][porto_block name="home-ad"][/vc_column]');
+   ?>
+</div>
+<?php
+}
+?>
+</div>
 </div>
 
 <?php
