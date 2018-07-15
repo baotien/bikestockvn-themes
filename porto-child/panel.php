@@ -1,0 +1,10 @@
+<?php
+global $porto_settings;
+?><style>#nav-panel .accordion-menu a {	padding: 10px 20px 11px !important;	color: #fff;	display: block;	font-size: 13px;	font-weight: bold;	line-height: 26px;	padding: 10px 20px 11px !important;	position: relative;	text-transform: uppercase;}#nav-panel .accordion-menu li a::before {	font-size: 26px;	margin-right: 12px;	border: none;	font-family: FontAwesome;	font-style: normal;	font-weight: normal;	text-decoration: inherit;}#nav-panel .accordion-menu li:nth-child(1) a::before {      content: "\f015";}#nav-panel .accordion-menu li:nth-child(2) a::before {      content: "\f007";}#nav-panel .accordion-menu li:nth-child(3) a::before {      content: "\f005";}#nav-panel .accordion-menu li:nth-child(4) a::before {      content: "\f07a";}#nav-panel .accordion-menu li:nth-child(5) a::before {      content: "\f14a";}#nav-panel .accordion-menu li:nth-child(6) a::before {      content: "\f044";}#nav-panel .accordion-menu li:nth-child(7) a::before {      content: "\f02d";}#nav-panel .accordion-menu li:nth-child(8) a::before {      content: "\f003";}#nav-panel .accordion-menu li:nth-child(9) a::before {      content: "\f002";}</style>
+<div class="panel-overlay"></div>
+<div id="nav-panel" class="<?php echo (isset($porto_settings['mobile-panel-pos']) && $porto_settings['mobile-panel-pos']) ? $porto_settings['mobile-panel-pos'] : '' ?>">
+    <?php	$args = array(            'menu' => 'mobile-menu',            'container' => '',            'menu_class' => 'mobile-menu accordion-menu',            'before' => '',            'after' => '',            'link_before' => '',            'link_after' => '',            'fallback_cb' => false,            'walker' => new porto_accordion_navwalker        );
+     wp_nav_menu($args);
+    ?>
+</div>
+<a href="#" id="nav-panel-close" class="<?php echo (isset($porto_settings['mobile-panel-pos']) && $porto_settings['mobile-panel-pos']) ? $porto_settings['mobile-panel-pos'] : '' ?>"><i class="fa fa-close"></i></a>
